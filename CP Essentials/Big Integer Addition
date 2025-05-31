@@ -1,0 +1,16 @@
+string BigSum(string a, string b) {
+  string c = "";
+  reverse(a.begin(), a.end());
+  reverse(b.begin(), b.end());
+  int n = a.size(), m = b.size(), car = 0, i = 0;
+  while (i < n || i < m || car) {
+    int da = (i < n ? a[i] - '0' : 0);
+    int db = (i < m ? b[i] - '0' : 0);
+    int sum = da + db + car;
+    c.push_back((sum % 10) + '0');
+    car = sum / 10;
+    i++;
+  }
+  reverse(c.begin(), c.end());
+  return c;
+}
